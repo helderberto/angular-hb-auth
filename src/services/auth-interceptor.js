@@ -1,3 +1,5 @@
+'use strict';
+
 angular
   .module('hbAuth')
   .service('hbAuth.authInterceptor', authInterceptor);
@@ -6,20 +8,19 @@ authInterceptor.$inject = [
   '$location',
   '$localStorage',
   '$q',
-  'CONFIG'
+  'configAuth'
 ];
 
-function authInterceptor($location, $localStorage, $q, CONFIG) {
+function authInterceptor($location, $localStorage, $q, configAuth) {
 
   var interceptor = {};
 
   interceptor.response = function(response) {
-
     var token = response.data.token;
 
     if (token) {
       $localStorage.auth_token = token;
-      $location.path(CONFIG.loggedInRedirect);
+      $location.path(configAuth.loggedInRedirect);
     }
     return response;
   };
@@ -29,7 +30,7 @@ function authInterceptor($location, $localStorage, $q, CONFIG) {
     config.headers = config.headers || {};
 
     if ($localStorage.token) {
-      config.headers[CONFIG.headerToken] = $localStorage.token;
+      config.headers[configAuth.headerToken] = $localStorage.token;
     }
     return config;
   };
@@ -38,7 +39,7 @@ function authInterceptor($location, $localStorage, $q, CONFIG) {
 
     if ((rejection !== null && rejection.status === 401)) {
       delete $localStorage.token;
-      $location.path(CONFIG.loginRedirect);
+      $location.path(configAuth.loginRedirect);
     }
     return $q.reject(rejection);
   };

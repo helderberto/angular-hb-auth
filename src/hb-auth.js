@@ -1,6 +1,8 @@
+'use strict';
+
 angular
   .module('hbAuth', [])
-  .constant('CONFIG', {
+  .value('configAuth', {
     loginRedirect: '/signin',
     loggedInRedirect: '/menu',
     headerToken: 'Authorization'
