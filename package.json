@@ -1,5 +1,5 @@
 {
-  "name": "hb-auth",
+  "name": "angular-hb-auth",
   "version": "1.0.0",
   "description": "Angular Auth Interceptor",
   "scripts": {
@@ -12,10 +12,6 @@
   "keywords": [
     "angular",
     "auth",
-    "interceptor",
-    "auth",
-    "interceptor",
-    "auth"
   ],
   "author": "Helder Burato Berto <contato@helderburato.com>",
   "license": "ISC",
