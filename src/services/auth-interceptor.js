@@ -19,7 +19,7 @@ function authInterceptor($location, $localStorage, $q, configAuth) {
     var token = response.data.token;
 
     if (token) {
-      $localStorage.auth_token = token;
+      $localStorage.authToken = token;
       $location.path(configAuth.loggedInRedirect);
     }
     return response;
@@ -29,8 +29,8 @@ function authInterceptor($location, $localStorage, $q, configAuth) {
 
     config.headers = config.headers || {};
 
-    if ($localStorage.auth_token) {
-      config.headers[configAuth.headerToken] = $localStorage.auth_token;
+    if ($localStorage.authToken) {
+      config.headers[configAuth.headerToken] = $localStorage.authToken;
     }
     return config;
   };
@@ -38,7 +38,7 @@ function authInterceptor($location, $localStorage, $q, configAuth) {
   interceptor.responseError = function(rejection) {
 
     if ((rejection !== null && rejection.status === 401)) {
-      delete $localStorage.auth_token;
+      delete $localStorage.authToken;
       $location.path(configAuth.loginRedirect);
     }
     return $q.reject(rejection);
