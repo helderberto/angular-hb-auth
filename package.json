@@ -1,0 +1,32 @@
+{
+  "name": "hb-auth",
+  "version": "1.0.0",
+  "description": "Angular Auth Interceptor",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/helderburato/hb-auth.git"
+  },
+  "keywords": [
+    "angular",
+    "auth",
+    "interceptor",
+    "auth",
+    "interceptor",
+    "auth"
+  ],
+  "author": "Helder Burato Berto <contato@helderburato.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/helderburato/hb-auth/issues"
+  },
+  "homepage": "https://github.com/helderburato/hb-auth#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify": "^2.0.1"
+  }
+}
