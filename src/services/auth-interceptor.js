@@ -8,7 +8,7 @@ authInterceptor.$inject = [
   '$location',
   '$localStorage',
   '$q',
-  'configAuth'
+  'hbAuth.config'
 ];
 
 function authInterceptor($location, $localStorage, $q, configAuth) {
@@ -29,8 +29,8 @@ function authInterceptor($location, $localStorage, $q, configAuth) {
 
     config.headers = config.headers || {};
 
-    if ($localStorage.token) {
-      config.headers[configAuth.headerToken] = $localStorage.token;
+    if ($localStorage.auth_token) {
+      config.headers[configAuth.headerToken] = $localStorage.auth_token;
     }
     return config;
   };
@@ -38,7 +38,7 @@ function authInterceptor($location, $localStorage, $q, configAuth) {
   interceptor.responseError = function(rejection) {
 
     if ((rejection !== null && rejection.status === 401)) {
-      delete $localStorage.token;
+      delete $localStorage.auth_token;
       $location.path(configAuth.loginRedirect);
     }
     return $q.reject(rejection);

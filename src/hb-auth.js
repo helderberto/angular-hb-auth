@@ -2,7 +2,7 @@
 
 angular
   .module('hbAuth', [])
-  .value('configAuth', {
+  .value('hbAuth.config', {
     loginRedirect: '/signin',
     loggedInRedirect: '/menu',
     headerToken: 'Authorization'

@@ -9,9 +9,9 @@ gulp.task('dist-clean', function() {
     .pipe(clean());
 });
 
-gulp.task('js-change', ['dist-clean'], function() {
+gulp.task('js-change', function() {
 
-  gulp.src([
+  return gulp.src([
     './src/hb-auth.js',
     './src/services/**.js'
   ])
@@ -20,4 +20,10 @@ gulp.task('js-change', ['dist-clean'], function() {
     .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('default', ['js-change']);
+gulp.task('watch-js', ['dist-clean', 'js-change'], function() {
+
+  gulp.watch('./src/hb-auth.js', ['js-change']);
+  gulp.watch('./src/services/**.js', ['js-change']);
+});
+
+gulp.task('default', ['watch-js']);
