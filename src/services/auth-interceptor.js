@@ -20,7 +20,7 @@ function authInterceptor($location, $localStorage, $q, configAuth) {
 
     if (token) {
       $localStorage.authToken = token;
-      $localStorage.compreaquiUser = JSON.stringify(response.data.data);
+      $localStorage.user = JSON.stringify(response.data.data);
       
       $location.path(configAuth.loggedInRedirect);
     }
