@@ -32,7 +32,7 @@ function authInterceptor($location, $localStorage, $q, configAuth) {
     config.headers = config.headers || {};
 
     if ($localStorage.authToken) {
-      config.headers[configAuth.headerToken] = $localStorage.authToken;
+      config.headers[configAuth.headerToken] = 'Bearer ' + $localStorage.authToken;
     }
     return config;
   };
