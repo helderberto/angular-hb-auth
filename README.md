@@ -12,7 +12,7 @@ This module is an simple way to make login token based.
 
 ### Below is an example of how to use it with angular:
 
-Load module in your app.js, and set the configurations:
+Load module in your `app.js`, and set the configurations:
 ```
   angular
     .module('yourApp', ['hbAuth'])
