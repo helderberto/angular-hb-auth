@@ -58,10 +58,30 @@ function auth($localStorage, configAuth) {
 
     configAuth = angular.extend(configAuth, config);
   };
-
+  
+  /**
+   * Return the Auth configs
+   * 
+   * @returns {object} Auth config object
+   */
   output.getConfig = function() {
 
     return configAuth;
+  };
+
+  /**
+   * Check if not empty {$localStorage.user} and return object with logged in user
+   * 
+   * @returns {object} Auth config object
+   */
+  output.getUser = function() {
+
+    var user = {};
+
+    if ($localStorage.user) {
+      user = JSON.parse($localStorage.user);
+    }
+    return user;
   };
 
   return output;
