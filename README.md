@@ -4,7 +4,10 @@ This is a simple Angular Auth Token interceptor.
 
 ## How to Install
 
-`$ npm install --save-dev angular-hb-auth`
+```
+$ npm install --save-dev angular-hb-auth
+$ bower install angular-hb-auth
+```
 
 ## How to Use
 
