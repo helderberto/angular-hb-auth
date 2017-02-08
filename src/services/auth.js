@@ -37,6 +37,7 @@ function auth($localStorage, configAuth) {
    */
   output.logout = function() {
     delete $localStorage.authToken;
+    delete $localStorage.user;
 
     return true;
   };
