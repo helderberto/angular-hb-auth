@@ -31,6 +31,17 @@ function auth($localStorage, configAuth) {
   };
 
   /**
+   * Remove token from $localStorage
+   * 
+   * @returns {boolean} Removed token
+   */
+  output.logout = function() {
+    delete $localStorage.authToken;
+
+    return true;
+  };
+
+  /**
    * Set the params to:
    * loginRedirect: {url}
    * loggedInRedirect: {url}
@@ -46,6 +57,11 @@ function auth($localStorage, configAuth) {
   output.setConfig = function(config) {
 
     configAuth = angular.extend(configAuth, config);
+  };
+
+  output.getConfig = function() {
+
+    return configAuth;
   };
 
   return output;
