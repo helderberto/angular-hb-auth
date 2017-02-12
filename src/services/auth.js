@@ -37,7 +37,6 @@ function auth($localStorage, configAuth) {
    */
   output.logout = function() {
     delete $localStorage.authToken;
-    delete $localStorage.user;
 
     return true;
   };
@@ -68,21 +67,6 @@ function auth($localStorage, configAuth) {
   output.getConfig = function() {
 
     return configAuth;
-  };
-
-  /**
-   * Check if not empty {$localStorage.user} and return object with logged in user
-   * 
-   * @returns {object} Auth config object
-   */
-  output.getUser = function() {
-
-    var user = {};
-
-    if ($localStorage.user) {
-      user = JSON.parse($localStorage.user);
-    }
-    return user;
   };
 
   return output;
